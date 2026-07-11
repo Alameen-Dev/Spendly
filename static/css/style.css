@@ -19,8 +19,8 @@
     --border: #e4e1da;
     --border-soft: #eeebe4;
 
-    --font-display: 'DM Serif Display', Georgia, serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-display: 'Inter', system-ui, sans-serif;
 
     --max-width: 1200px;
     --auth-width: 440px;
@@ -131,40 +131,43 @@ a { color: inherit; text-decoration: none; }
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
+    background: #FAFAFA;
 }
 
 .hero-badge {
     display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
+    background: #F0FFF4;
+    color: #2BB673;
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
     margin-bottom: 1.5rem;
 }
 
 .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
+    color: #111111;
+    margin-bottom: 1rem;
 }
 
-.hero-title em {
-    font-style: italic;
-    color: var(--accent);
+.hero-title-green {
+    color: #2BB673;
+    font-weight: 700;
 }
 
 .hero-subtitle {
-    font-size: 1.05rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
-    max-width: 460px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.1rem;
+    color: #666666;
+    line-height: 1.6;
+    max-width: 500px;
     margin-bottom: 2rem;
 }
 
@@ -175,7 +178,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------ */
-/* Mock card (hero visual)                                             */
+/* Mock dashboard (hero visual)                                        */
 /* ------------------------------------------------------------------ */
 
 .hero-visual {
@@ -183,77 +186,111 @@ a { color: inherit; text-decoration: none; }
     justify-content: center;
 }
 
-.mock-card {
-    background: var(--paper-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+.mock-dashboard {
+    background: #ffffff;
+    border: 1px solid #E5E5E5;
+    border-radius: 20px;
     padding: 2rem;
     width: 100%;
-    max-width: 380px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    max-width: 420px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
 }
 
-.mock-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1.75rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-.mock-label {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-.mock-total {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    color: var(--ink);
-}
-
-.mock-bars { display: flex; flex-direction: column; gap: 1rem; }
-
-.mock-bar-row {
+.dashboard-cards {
     display: grid;
-    grid-template-columns: 80px 1fr 60px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    text-align: center;
+}
+
+.card-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+}
+
+.card-value {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 0.35rem;
+}
+
+.card-change {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    color: #888888;
+}
+
+.card-change-red {
+    color: #E53E3E;
+}
+
+.card-change-green {
+    color: #2BB673;
+}
+
+.dashboard-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bar-row {
+    display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-.mock-cat {
-    font-size: 0.8rem;
+.bar-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.85rem;
     font-weight: 500;
-    color: var(--ink-soft);
+    color: #444444;
+    width: 60px;
+    text-align: right;
 }
 
-.mock-bar-track {
-    height: 6px;
-    background: var(--border-soft);
-    border-radius: 999px;
+.bar-track {
+    flex: 1;
+    height: 8px;
+    background: #F0F0F0;
+    border-radius: 100px;
     overflow: hidden;
 }
 
-.mock-bar {
+.bar-fill {
     height: 100%;
-    background: var(--accent);
-    border-radius: 999px;
-    transition: width 0.6s ease;
+    border-radius: 100px;
 }
 
-.mock-bar-2 { background: var(--accent-2); }
-.mock-bar-3 { background: #5b7fa6; }
-.mock-bar-4 { background: #8b5e83; }
+.bar-fill-1 {
+    width: 65%;
+    background: #2BB673;
+}
 
-.mock-amt {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--ink-muted);
-    text-align: right;
+.bar-fill-2 {
+    width: 42%;
+    background: #4A90E2;
+}
+
+.bar-fill-3 {
+    width: 28%;
+    background: #9CA3AF;
+}
+
+.mock-dashboard:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
 }
 
 /* ------------------------------------------------------------------ */
@@ -262,37 +299,42 @@ a { color: inherit; text-decoration: none; }
 
 .btn-primary {
     display: inline-block;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.65rem 1.5rem;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
+    background: #111111;
+    color: #ffffff;
+    padding: 0.7rem 1.6rem;
+    border-radius: 100px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     border: none;
-    transition: background 0.2s;
+    transition: all 0.3s ease;
     text-decoration: none;
 }
 
-.btn-primary:hover { background: var(--accent); }
+.btn-primary:hover {
+    transform: scale(1.03);
+    background: #000000;
+}
 
 .btn-ghost {
     display: inline-block;
     background: transparent;
-    color: var(--ink-soft);
-    padding: 0.65rem 1.5rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.9rem;
+    color: #111111;
+    padding: 0.7rem 1.6rem;
+    border-radius: 100px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
     font-weight: 500;
-    border: 1px solid var(--border);
-    transition: all 0.2s;
+    border: 1px solid #111111;
+    transition: all 0.3s ease;
     text-decoration: none;
 }
 
 .btn-ghost:hover {
-    border-color: var(--ink);
-    color: var(--ink);
+    transform: scale(1.03);
+    border-color: #2BB673;
+    color: #2BB673;
 }
 
 /* ------------------------------------------------------------------ */
@@ -562,7 +604,12 @@ a { color: inherit; text-decoration: none; }
 
     .hero-subtitle { max-width: 100%; }
     .hero-actions { justify-content: center; }
-    .hero-visual { display: none; }
+    .hero-visual { margin-top: 2rem; }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 
     .features-inner { grid-template-columns: 1fr; }
 }
@@ -570,4 +617,12 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 600px) {
     .nav-links a:not(.nav-cta) { display: none; }
     .hero { padding: 3rem 1rem 2rem; }
+    .hero-badge { padding: 0.35rem 0.7rem; font-size: 0.7rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .btn-primary, .btn-ghost {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 1rem;
+    }
 }
